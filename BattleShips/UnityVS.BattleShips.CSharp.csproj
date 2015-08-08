@@ -66,11 +66,11 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets\Plugins\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Plugins\Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Plugins\WebSocket\websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +139,7 @@
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+    <Compile Include="Assets\Scripts\Drone.cs" />
     <Compile Include="Assets\Scripts\Networking\ConnectToServer.cs" />
     <Compile Include="Assets\Scripts\Shipyard.cs" />
   </ItemGroup>
