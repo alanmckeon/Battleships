@@ -10,6 +10,8 @@ public class Drone : MonoBehaviour
     public string team, lane, enemyTag, enemyBaseTag;
     public GameObject N1, N2, N3, C1, C2, C3, S1, S2, S3;
     Quaternion targetRotation;
+    public bool leftWaypoint = false;
+    int waypointsHit = 0;
 
     // Use this for initialization
     void Start()
@@ -84,22 +86,37 @@ public class Drone : MonoBehaviour
         {
             target = other.gameObject;
         }
-        if ((other.tag == "Waypoint") & (currentWaypoint = firstWaypoint))
+        else if ((currentWaypoint = firstWaypoint) && (other.tag == "Waypoint"))
         {
-            currentWaypoint = secondWaypoint;
-            target = currentWaypoint;
-        } else if ((other.tag == "Waypoint") & (currentWaypoint = secondWaypoint))
-        {
-            currentWaypoint = thirdWaypoint;
-        } else if ((other.tag == "Waypoint") & (currentWaypoint = thirdWaypoint))
-        {
-            currentWaypoint = enemyBase;
-            target = currentWaypoint;
+            if (waypointsHit == 0)
+            {
+                currentWaypoint = secondWaypoint;
+                target = currentWaypoint;
+                leftWaypoint = false;
+                waypointsHit++;
+                Debug.Log("Hit Trigger");
+            }
+            else if (waypointsHit == 1)
+            {
+                currentWaypoint = thirdWaypoint;
+                target = currentWaypoint;
+                leftWaypoint = false;
+                waypointsHit++;
+                Debug.Log("Hit Trigger");
+            }
+            else if (waypointsHit == 2)
+            {
+                currentWaypoint = enemyBase;
+                target = currentWaypoint;
+                leftWaypoint = false;
+                waypointsHit++;
+                Debug.Log("Hit Trigger");
+            }
         }
-        Debug.Log("Hit Trigger");
     }
     void OnTriggerExit(Collider other)
     {
+        leftWaypoint = true;
         target = currentWaypoint;
     }
     void faceTarget()
