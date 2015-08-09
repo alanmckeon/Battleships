@@ -12,6 +12,7 @@ public class Drone : MonoBehaviour
     Quaternion targetRotation;
     public bool leftWaypoint = false;
     int waypointsHit = 0;
+    bool notRun = true;
 
     // Use this for initialization
     void Start()
@@ -42,7 +43,7 @@ public class Drone : MonoBehaviour
                 thirdWaypoint = S3;
             }
         }
-        else if(team == "blue")
+        else if(team == "Blue")
         {
             this.gameObject.tag = "BlueTeam";
             enemyTag = "RedTeam";
